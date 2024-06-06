@@ -1,6 +1,3 @@
-const ROWS = 16;
-const COLS = 16
-
 function createGrid(rows, cols) {
     const container = document.querySelector(".container");
     for (let i = 0; i < rows; i++) {
@@ -18,4 +15,19 @@ function createGrid(rows, cols) {
     }
 }
 
-createGrid(ROWS, COLS);
+function getNumber(msg) {
+    return prompt(msg);
+}
+
+const btn = document.querySelector("button");
+btn.addEventListener("click", e => {
+    let rows = getNumber("Number of rows?");
+    while (rows > 100) {
+        rows = getNumber("The number must be lower than 100");
+    }
+    let cols = getNumber("Number of cols?");
+    while (cols > 100) {
+        cols = getNumber("The number must be lower than 100");
+    }
+    createGrid(rows, cols);
+})
