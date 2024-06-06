@@ -9,6 +9,9 @@ function createGrid(rows, cols) {
         for (let j = 0; j < cols; j++) {
             const pixel = document.createElement("div");
             pixel.classList.toggle("pixel");
+            pixel.addEventListener("mouseover", e => {
+                pixel.style.backgroundColor = "black";
+            })
             row.appendChild(pixel);
         }
         container.appendChild(row);
