@@ -5,8 +5,9 @@ function deleteGrid() {
     });
 }
 
-function getRand_255() {
-    return Math.floor(Math.random() * 255) + 1;
+let iteration = 0;
+function getRand_255(iteration) {
+    return Math.floor(Math.random() * (Math.max(0, 255 - 255 / 10 * iteration))) + 1;
 };
     
 function createGrid(rows, cols) {
@@ -19,7 +20,8 @@ function createGrid(rows, cols) {
             const pixel = document.createElement("div");
             pixel.classList.toggle("pixel");
             pixel.addEventListener("mouseover", e => {
-                pixel.style.backgroundColor = `rgb(${getRand_255()}, ${getRand_255()}, ${getRand_255()})`;
+                pixel.style.backgroundColor = `rgb(${getRand_255(iteration)}, ${getRand_255(iteration)}, ${getRand_255(iteration)})`;
+                iteration += 1;
             })
             row.appendChild(pixel);
         }
@@ -41,6 +43,7 @@ btn.addEventListener("click", e => {
     while (cols > 100) {
         cols = getNumber("The number must be lower than 100");
     }
+    iteration = 0;
     createGrid(rows, cols);
 })
 
@@ -53,5 +56,5 @@ function clean_grid() {
 }
 clean_btn.addEventListener("click", e => {
     clean_grid();
-    console.log("si")
+    iteration = 0;
 });
