@@ -5,6 +5,10 @@ function deleteGrid() {
     });
 }
 
+function getRand_255() {
+    return Math.floor(Math.random() * 255) + 1;
+};
+    
 function createGrid(rows, cols) {
     deleteGrid();
     const container = document.querySelector(".container");
@@ -15,7 +19,7 @@ function createGrid(rows, cols) {
             const pixel = document.createElement("div");
             pixel.classList.toggle("pixel");
             pixel.addEventListener("mouseover", e => {
-                pixel.style.backgroundColor = "black";
+                pixel.style.backgroundColor = `rgb(${getRand_255()}, ${getRand_255()}, ${getRand_255()})`;
             })
             row.appendChild(pixel);
         }
