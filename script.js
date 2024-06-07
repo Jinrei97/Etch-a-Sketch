@@ -1,4 +1,12 @@
+function deleteGrid() {
+    const rows = document.querySelectorAll(".row");
+    rows.forEach(row => {
+        row.remove();
+    });
+}
+
 function createGrid(rows, cols) {
+    deleteGrid();
     const container = document.querySelector(".container");
     for (let i = 0; i < rows; i++) {
         const row = document.createElement("div");
