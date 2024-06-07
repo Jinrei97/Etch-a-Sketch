@@ -31,3 +31,15 @@ btn.addEventListener("click", e => {
     }
     createGrid(rows, cols);
 })
+
+const clean_btn = document.querySelector(".clean");
+function clean_grid() {
+    const pixels = document.querySelectorAll(".pixel");
+    pixels.forEach((pixel) => {
+        pixel.style.backgroundColor = "white";
+    });
+}
+clean_btn.addEventListener("click", e => {
+    clean_grid();
+    console.log("si")
+});
